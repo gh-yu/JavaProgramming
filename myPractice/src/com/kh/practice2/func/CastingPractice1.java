@@ -10,7 +10,7 @@ public class CastingPractice1 {
 		char ch = sc.nextLine().charAt(0);
 		int unicode = ch; // 작은 자료형이 큰 자료형으로 변환하는 거라 명시 안해줘도 자동 형변환
 		
-		System.out.println("A unicode : " + unicode);
-//		System.out.println("A unicode : " + (int)ch); // 따로 int 변수 안 만들어도 print할때 형변환해서 출력 가능
+		System.out.println(ch + " unicode : " + unicode);
+//		System.out.println(ch + " unicode : " + (int)ch); // 따로 int 변수 안 만들어도 print할때 형변환해서 출력 가능
 	}
 }

@@ -9,6 +9,14 @@ public class Run {
 //		op.practice2();
 //		op.practice3();
 //		op.practice4();
-		op.practice5();
+//		op.practice5();
+//		op.practice5_1();
+//		op.practice6();
+//		op.practice6_1();
+//		op.practice7();
+//		op.practice8();
+//		op.practice9();
+		op.practice10();
+//		op.practice11();
 	}
 }

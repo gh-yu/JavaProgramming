@@ -26,8 +26,12 @@ public class Run {
 //		bw.method3();
 //		bw.method4();
 //		bw.method5();
-		bw.method5_1();
+//		bw.method5_1();
 //		bw.method6();
 //		bw.method6_1();
+//		bw.method7();
+//		bw.method8();
+//		bw.method9();
+		bw.method10();
 	}
 }

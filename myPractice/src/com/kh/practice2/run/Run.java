@@ -6,10 +6,10 @@ import com.kh.practice2.func.CastingPractice3;
 
 public class Run {
 	public static void main(String[] args) {
-//		CastingPractice1 cp1 = new CastingPractice1();
+		CastingPractice1 cp1 = new CastingPractice1();
 //		cp1.method();
 
-//		CastingPractice2 cp2 = new CastingPractice2();
+		CastingPractice2 cp2 = new CastingPractice2();
 //		cp2.method();
 		
 		CastingPractice3 cp3 = new CastingPractice3();

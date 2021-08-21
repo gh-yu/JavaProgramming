@@ -181,9 +181,9 @@ public class A_For {
 //		}
 		Scanner sc = new Scanner(System.in);
 		System.out.print("출력할 줄 수 : ");
-		int line = sc.nextInt();
+		int row = sc.nextInt();
 		
-		for (int i = 1; i <= line; i++) {
+		for (int i = 1; i <= row; i++) {
 			for (int j = 0; j < 5; j++) {
 				System.out.print("*");
 			}
@@ -207,12 +207,12 @@ public class A_For {
 		 */
 		Scanner sc = new Scanner(System.in);
 		System.out.print("줄 수 : ");
-		int line = sc.nextInt();
+		int row = sc.nextInt();
 		System.out.print("칸 수 : ");
-		int space = sc.nextInt();
+		int col = sc.nextInt();
 		
-		for (int i = 1; i <= line; i++) {
-			for (int j = 1; j <= space; j++) {
+		for (int i = 1; i <= row; i++) {
+			for (int j = 1; j <= col; j++) {
 				if (i == j) {
 					System.out.print(i);
 				} else {

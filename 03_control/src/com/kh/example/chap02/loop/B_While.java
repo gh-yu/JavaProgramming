@@ -170,8 +170,8 @@ public class B_While {
 			case 1 : method1(); break;
 			case 2 : method2(); break;
 			case 3 : method3(); break;
-//			case 9 : System.out.println("종료합니다."); break;
-			case 9 : System.out.println("종료합니다."); return; // break 대신 return을 넣어 메소드 종료되게 함
+//			case 9 : System.out.println("종료합니다."); break; // 이 코드로 하면 while문 종료 조건 없어 무한반복
+			case 9 : System.out.println("종료합니다."); return; // break가 아닌 return을 넣어 메소드 종료되게 함
 			default : System.out.println("잘못 입력하셨습니다.");
 			}	
 		}	
@@ -197,5 +197,82 @@ public class B_While {
 			default : System.out.println("잘못 입력하셨습니다.");
 			}
 		} while (true);
+	}
+	
+	public void method7() {
+		// A_FOr method8의 while문
+		Scanner sc = new Scanner(System.in);
+		System.out.print("출력할 줄 수 : ");
+		int row = sc.nextInt();
+		
+		int i = 1;
+		while (i <= row) {
+			int j = 1;
+			while (j <= 5) {
+					System.out.print("*");
+					j++; // 증감식은 while문 안에
+			}
+			System.out.println();
+			i++;
+		}	
+	}
+	
+	public void method8() {
+		// A_FOr method9의 while문
+		Scanner sc = new Scanner(System.in);
+		System.out.print("줄 수 입력 : ");
+		int row = sc.nextInt();
+		System.out.print("칸 수 입력 : ");
+		int col = sc.nextInt();
+		
+		int i = 1;
+//		int j = 1; // 작은 반복문 끝나고 새롭게 돌아야 하기 때문에 큰 반복문 안에다 초기화 시켜야함
+		while (i <= row) {
+			int j = 1;
+			while (j <= col) {
+//				if (row == col) { // 실수
+//					System.out.print(col);
+//				if (i = j) { // == 해야 되는데 실수
+				if (i == j) {
+					System.out.print(i);
+				} else {
+					System.out.print("*");
+				}
+				j++;
+			}
+			System.out.println();
+			i++;
+		}
+	}
+	
+	public void method9() {
+		// 키보드로 문자열 값을 입력 받아 출력 반복 실행  --> 몇 번 반복할지 알 수 없을때 while문이 적합
+		// exit가 들어가면 반복 종료 -> exit가 아니면 계속 진행
+		
+		Scanner sc = new Scanner(System.in);
+		
+//		String str = null; // String 클래스를 비롯한 모든 클래스, 즉 참조형 자료형의 기본값은 null이다.
+//		// null ? 아무 것도 없음(= 진공)
+		// NullPointerExcetion 에러 뜸, str.을 통해  가리켜서 String 클래스 접근했는데 안에 null 밖에 없음
+		String str= "";
+		while(!str.equals("exit")) { // exit가 아니면 반복, equals() : String 클래스 안의 메소드
+			System.out.print("문자열 입력 : "); // 안내문부터 반복 시켜야 함
+			str = sc.nextLine();
+			System.out.println("str : " + str);
+		}
+	}
+	
+	public void method10() {
+		Scanner sc = new Scanner(System.in);
+		
+		String str = null;
+		do {
+			System.out.print("문자열 입력 : ");
+			str = sc.nextLine();
+			System.out.println("str : " + str);
+		} while (!str.equals("exit")); 
+		// NullPointerException 안 뜸
+		// nextLine으로 문자열 받아서 str에 문자열이 저장된 뒤 while문 조건식 확인하기 때문에 
+		// -> str에  null값 없음. 사용자가 null값 입력한건 문자열이기 때문에 관계 없음.
 	}
 }

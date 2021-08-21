@@ -11,13 +11,13 @@ public class Run {
 		VariablePractice1 vp1 = new VariablePractice1();
 		vp1.method();
 		
-//		VariablePractice2 vp2 = new VariablePractice2();
+		VariablePractice2 vp2 = new VariablePractice2();
 //		vp2.method();
 		
-//		VariablePractice3 vp3 = new VariablePractice3();
+		VariablePractice3 vp3 = new VariablePractice3();
 //		vp3.method();
 		
-//		VariablePractice4 vp4 = new VariablePractice4();
+		VariablePractice4 vp4 = new VariablePractice4();
 //		vp4.printChar();
 	}
 }

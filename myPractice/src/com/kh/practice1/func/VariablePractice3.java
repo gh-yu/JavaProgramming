@@ -14,9 +14,9 @@ public class VariablePractice3 {
 		
 		sc.nextLine();
 		System.out.print("세로 : ");
-		double length = sc.nextDouble();
+		double height = sc.nextDouble();
 		
-		System.out.println("면적 : " + (width * length));
-		System.out.println("둘레 : " + ((width + length) * 2));
+		System.out.println("면적 : " + (width * height));
+		System.out.println("둘레 : " + ((width + height) * 2));
 	}
 }

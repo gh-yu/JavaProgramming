@@ -12,10 +12,10 @@ public class CastingPractice3 {
 		
 		char ch = 'A';
 		
-		System.out.println(iNum1 - 2 * iNum2);
+		System.out.println(iNum1 / iNum2);
 		System.out.println((int)dNum);
 		
-		System.out.println(2 * iNum2 + dNum - 0.5);
+		System.out.println(iNum2 * dNum);
 		System.out.println((double)iNum1);
 		
 		System.out.println((double)iNum1 / iNum2);
