@@ -31,7 +31,7 @@ public class ShapeController {
 	}
 	
 	public void paintColor(String color) {
-		s.setColor(color); // Shape 클래스에 대한 객체의 주소값을 s라는 변수에 담음(s는 참조변수) s. 을 통해 해당 객체의 메소드에 접근 
+		s.setColor(color); // Shape 클래스에 대한 객체의 주소값을 s라는 변수에 담음(s는 참조변수) s. 을 통해 해당(Shape) 객체의 메소드에 접근 
 	}
 	
 	public String print(int type) {

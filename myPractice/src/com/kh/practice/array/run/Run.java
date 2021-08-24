@@ -24,10 +24,10 @@ public class Run {
 //		ap.practice13_1();
 //		ap.practice13_2();
 //		ap.practice14();
-		ap.practice14_1();
+//		ap.practice14_1();
 //		ap.practice14_2();
 //		ap.practice15();
-//		ap.practice16();
+		ap.practice16();
 	}
 
 }

@@ -201,15 +201,15 @@ public class ArrayPractice {
 		System.out.print("치킨 이름을 입력하세요 : ");
 		String str = sc.nextLine();
 		
-		boolean cheak = false; // int count = 0; 으로 대체 가능
+		boolean check = false; // int count = 0; 으로 대체 가능
 		for (int i = 0; i < arr.length; i++) {
 			if (arr[i].equals(str)) {
 				System.out.println(str + "치킨 배달 가능");
-				cheak = true;
+				check = true;
 				break;
 			}
 		}
-		if (!cheak) {
+		if (!check) {
 			System.out.println(str + "치킨은 없는 메뉴입니다.");
 		}
 			
@@ -479,11 +479,158 @@ public class ArrayPractice {
 
 	}
 	
-	public void practice15() {
+	public void practice15() { // 오류 해결 과정 포함 코드
+		// 문자 중복 제거
+		Scanner sc = new Scanner(System.in);
+		System.out.print("문자열 : ");
+		String str = sc.nextLine();
+		
+		char[] chArr = new char[str.length()];
+		
+		for (int i = 0; i < chArr.length; i++) {
+			chArr[i] = str.charAt(i);
+		}
+		
+		char[] chArr2 = new char[str.length()];
+		
+		
+		int count = 0; // count는 chArr2의 배열 크기 세는 변수, 중복 없는거 확인 후 문자 넣을때마다 1씩 증가됨
+		for (int i = 0; i < chArr.length; i++) { // 문자 중복 제거
+		
+//			if (i == 0) {
+//				chArr2[i] = chArr[i];
+//				continue;
+//			}
+			
+//			for (int j = i - 1; j >= 0; j--) { // 틀린 코드
+//				if (chArr[i] == chArr[j]) {
+//					overlap = true;
+//					break;
+//				}
+//			}
+			
+			boolean overlap = false; // 이 안에 들어와야 작은 for문 돌고 밑에 문장 조건에 따라  실행하거나 안한 후 
+								     // 큰 for문 다시 돌때 false가 되어서 제대로 중복 검사할 수 있음
+			for (int j = 0; j < i; j++) {
+				if (chArr[i] == chArr[j]) {
+					overlap = true;
+					break;
+				}
+			}
+			
+			if (!overlap) {
+				chArr2[count] = chArr[i];
+//				overlap = false; // 중복 있었을 경우에는 이 안에 문장 실행 안돼서 overlap값은 true에서 값 변경 없게 되고 for문 돌아도 계속 true, 결과 이상해짐
+				count++;
+			}
+		}
+		
+		for (int i = 0; i < count; i++) {
+			if (i != count - 1) {
+				System.out.print(chArr2[i] + ", ");
+			} else {
+				System.out.print(chArr2[i]);
+			}
+		}
+		System.out.println();
+		System.out.println("문자 개수 : " + count);
+		
+	}
+	
+	public void practice15_1() { // 위 코드 정리한 코드
+		// 문자 중복 제거
+		Scanner sc = new Scanner(System.in);
+		System.out.print("문자열 : ");
+		String str = sc.nextLine();
+		
+		char[] chArr = new char[str.length()];
+		
+		for (int i = 0; i < chArr.length; i++) {
+			chArr[i] = str.charAt(i);
+		}
+		
+		char[] chArr2 = new char[str.length()];
+		
+		
+		int count = 0; // count는 chArr2의 배열 크기 세는 변수, 중복 없는거 확인 후 문자 넣을때마다 1씩 증가됨
+		for (int i = 0; i < chArr.length; i++) { // 문자 중복 제거, chArr2 배열에 저장
+			
+			boolean overlap = false; 
+			
+			for (int j = 0; j < i; j++) {
+				if (chArr[i] == chArr[j]) {
+					overlap = true;
+					break;
+				}
+			}
+			
+			if (!overlap) {
+				chArr2[count] = chArr[i];
+				count++;
+			}
+		}
+		
+		for (int i = 0; i < count; i++) { // 중복 제거된 문자 출력
+			if (i != count - 1) {
+				System.out.print(chArr2[i] + ", ");
+			} else {
+				System.out.print(chArr2[i]);
+			}
+		}
+		
+		System.out.println();
+		System.out.println("문자 개수 : " + count);
 		
 	}
 	
 	public void practice16() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("배열의 크기를 입력하세요 : "); // 안내문 출력
+		int length = sc.nextInt();
 		
-	}
+		String[] arr = new String[length];
+		
+		sc.nextLine(); // nextLine()으로 버퍼에 남아있는 엔터 비워주기 <- nextInt() 다음에 nextLine() 올 때
+		int i = 0;
+		for (; i < arr.length;) {
+			System.out.print((i + 1) + "번째 문자열 : ");
+			arr[i] = sc.nextLine();
+			
+			if (i == arr.length - 1) { // 배열 길이만큼 채운 후 더 입력할 것인지
+				
+				System.out.print("더 값을 입력하시겠습니까?(Y/N) : ");
+				char ch = sc.nextLine().charAt(0);
+				
+				if ( ch == 'y' || ch == 'Y') {
+					while (true) { 
+						System.out.print("더 입력하고 싶은 개수 : ");
+						int num = sc.nextInt();
+						
+						if (num > 0) {
+							length += num; // 원본 배열의 길이에 더 입력하고 싶은 길이 더하기
+							arr = Arrays.copyOf(arr, length); // arr 배열의 데이터 복사한 새로운 길이의 배열 재할당
+							break;
+						} else { // 0 이하 입력했을때 다시 입력하도록
+							System.out.println("잘못 입력하셨습니다. 다시 입력해주세요.");
+							continue;
+						}
+					}
+				} else if (ch == 'n' || ch == 'N') {
+					break;
+				}
+				sc.nextLine(); 
+			} 
+			i++;
+		}
+		
+		System.out.print("["); // 맨 앞에 한 번만
+		for (int j = 0; j <= i; j++) {
+			if (j != i) {
+				System.out.print(arr[j] + ", ");
+			} else {
+				System.out.println(arr[j] + "]");
+			}
+		}
+	}	
+		
 }

@@ -27,7 +27,8 @@ public class ShapeMenu {
 				case 9 : System.out.println("프로그램을 종료합니다."); return;
 				}
 				
-//				break; // (버그3) break가 여기 있으면 삼각형 메뉴 가서 메인으로 돌아갑니다 누르면 프로그램 종료 누르기 전에 런 클래스의 main메소드로 돌아감
+//				break; // (버그3) break가 여기 있으면 삼각형 메뉴 가서 메인으로 돌아갑니다 누르면 
+				       //        프로그램 종료 누르기 전에 현 메소드 종료 되고 런 클래스의 main메소드로 돌아감
 	
 			} else {
 				System.out.println("잘못된 번호입니다. 다시 입력하세요.");
@@ -37,7 +38,7 @@ public class ShapeMenu {
 	
 	public void triangleMenu() {	
 		
-		boolean cheak = false; // (버그2) cheak 선언 및 초기화 while문 안이 아닌 바깥에 해야 값 제대로 나옴, 반복하면서 false로 초기화되기 때문
+		boolean check = false; // (버그2) check 선언 및 초기화 while문 안이 아닌 바깥에 해야 값 제대로 나옴, 반복하면서 false로 초기화되기 때문
 		while (true) {
 			System.out.println("===== 삼각형 =====");
 			System.out.println("1. 삼각형 면적");
@@ -55,13 +56,13 @@ public class ShapeMenu {
 				switch (inputNum) {
 				case 1 : 
 					inputData(3, inputNum);
-					cheak = true;
+					check = true; // 높이와 너비가 설정되었는지 확인
 					break;
 				case 2 : 
 					inputData(3, inputNum);
 					break;
 				case 3 : 
-					if (cheak) {
+					if (check) {
 						printlnform(3);
 					} else {
 						System.out.println("삼각형의 높이 또는 너비가 설정되지 않았습니다.");
@@ -80,7 +81,7 @@ public class ShapeMenu {
 	
 	public void squareMenu() {
 		
-		boolean cheak = false;
+		boolean check = false;
 		while (true) {
 			System.out.println("===== 사각형 =====");
 			System.out.println("1. 사각형 둘레");
@@ -99,17 +100,17 @@ public class ShapeMenu {
 				switch (inputNum) {
 				case 1 :
 					inputData(4, inputNum);
-					cheak = true;
+					check = true;
 					break;
 				case 2 : 
 					inputData(4, inputNum);
-					cheak = true;
+					check = true;
 					break;
 				case 3 : 
 					inputData(4, inputNum);
 					break;
 				case 4 : 
-					if (cheak) {
+					if (check) {
 						printlnform(3);
 					} else {
 						System.out.println("사각형의 높이 또는 너비가 설정되지 않았습니다.");
@@ -142,7 +143,7 @@ public class ShapeMenu {
 				break;
 			case 2 : 
 				System.out.print("색깔 : ");
-				String color = sc.next();
+				String color = sc.next(); // nextLine() 으로 받게 되면 엔터까지 가져와서 문제 발생
 				spr.paintColor(color);
 				System.out.println("색이 설정되었습니다.");
 			}

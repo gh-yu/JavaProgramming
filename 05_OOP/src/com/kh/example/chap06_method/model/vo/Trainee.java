@@ -72,7 +72,7 @@ public class Trainee {
 	
 	// score에 대한 setter, getter
 	public static void setScore(double score) {
-		Trainee.score = score;
+		Trainee.score = score; // score 변수는 static변수(클래스 변수), 클래스명.변수명 이렇게 써서 접근한다.
 	}
 	public static double getScore() {
 		return score;
