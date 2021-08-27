@@ -42,12 +42,12 @@ public class PersonController {
 						 new Person("도대담", 31, '남', 182.4, 67.5),
 						 new Person("류라라", 18, '여', 172.4, 56.1)};
 		
-		for (int i = 0; i < pArr.length; i++) {
+		for (int i = 0; i < pArr.length; i++) { // 배열의 각 인덱스 별로 저장되어 있는 각 객체의 주소값 출력
 			System.out.println(pArr[i]);
 		}
 		
 		for (int i = 0; i < pArr.length; i++) {
-			System.out.println(pArr[i].personinfo());
+			System.out.println(pArr[i].personinfo()); // 배열의 각 인덱스 별로 저장되어 있는 각 객체의 메소드 호출
 		}
 		
 	}
