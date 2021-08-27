@@ -134,9 +134,10 @@ public class MemberMenu {
 
 		Member[] arr = mc.searchName(name); // 반환된 Member클래스 타입의 객체 배열의 (참조변수에 담긴)주소값을 Member클래스 타입의 배열 arr참조변수에 대입
 											// 입력받은 name과 Member타입 객체배열에 저장된 name을 비교하기 위해서 만듦
+											// 두 변수의 값이 일치하면 객체배열의 주소 반환, 일치하지 않으면 null값 반환
 		
 //		if (!(mc.searchName(name).equals(null))) { // 잘못된 코드 null값은 String형이 아님 ==으로 비교해야함
-		if (mc.searchName(name) != null) {
+		if (arr != null) {
 			System.out.println("찾으신 회원 조회 결과입니다.");
 
 			for (int i = 0; i < arr.length; i++) {
@@ -144,8 +145,6 @@ public class MemberMenu {
 					if (arr[i].getName().equals(name)) { // arr[i]. 해서 Member클래스의 메소드 사용 가능 <- 여기서 Member타입 객체배열 arr 선언한 이유
 						System.out.println(arr[i].inform());
 					}
-				} else {
-					break;
 				}
 			}
 		} else {
@@ -160,7 +159,7 @@ public class MemberMenu {
 
 		Member[] arr = mc.searchEmail(email);
 
-		if (mc.searchEmail(email) != null) {
+		if (arr != null) {
 			System.out.println("찾으신 회원 조회 결과입니다.");
 
 //			for (int i = 0; i < arr.length; i++) {
@@ -169,16 +168,19 @@ public class MemberMenu {
 //						System.out.println(arr[i].inform());
 //					}
 //				} else {
-//					break;
+//					break; // delete해버릴 걸 생각하면 이 코드 존재하면 안됨
 //				}
 //			}
 		
-			// 간단한 코드
-			for (int i = 0; i < mc.existMemberNum(); i++) {
-				if (arr[i].getEmail().equals(email)) {
-					System.out.println(arr[i].inform());
+//			for (int i = 0; i < mc.existMemberNum(); i++) { // delete해버릴 걸 생각하면 조건식에 mc.existMemberNum()로 하면 안됨 중간 인덱스가 null일 수도
+			for (int i = 0; i < arr.length; i++) { // 객체배열 인덱스 마지막까지 for문 돌아야함
+				if (arr[i] != null) { // i번째 배열의 객체가 null이 아니면
+					if (arr[i].getEmail().equals(email)) { // i번째 배열의 객체에 들어있는 email값이 매개변수 email 값이랑 같은지 비교
+						System.out.println(arr[i].inform()); // 같으면 그 배열의 객체에 들어있는 회원의 정보 모두 출력, 여려 명의 정보가 출력 될 수 있음
+					}
 				}
 			}
+
 			
 		} else {
 			System.out.println("검색 결과가 없습니다.");
@@ -277,7 +279,7 @@ public class MemberMenu {
 	public void deletOne() {
 		
 		if (mc.existMemberNum() == 0) {
-			System.out.println("등록된 회원이 없습니다.");
+			System.out.println("저장된 회원이 없습니다.");
 		} else {
 			System.out.print("삭제할 회원의 아이디 : ");
 			String id = sc.nextLine();
@@ -308,7 +310,7 @@ public class MemberMenu {
 	public void deleteAll() {
 
 		if (mc.existMemberNum() == 0) {
-			System.out.println("등록된 회원이 없습니다.");
+			System.out.println("저장된 회원이 없습니다.");
 		} else {
 			while (true) {
 				System.out.print("정말 삭제하시겠습니까?(y/n) : ");
@@ -335,10 +337,12 @@ public class MemberMenu {
 			
 			Member[] arr = mc.printAll();
 			
-			for(int i = 0; i < mc.existMemberNum(); i++) {
-				System.out.println(arr[i].inform()); 
+//			for(int i = 0; i < mc.existMemberNum(); i++) { // 중간 인덱스거 삭제하면 모든 회원 정보 재대로 안나옴
+			for(int i = 0; i < arr.length; i++) {
+				if (arr[i] != null) {
+					System.out.println(arr[i].inform()); 
+				}
 			}
-			
 			
 		} else {
 			System.out.println("저장된 회원이 없습니다.");
