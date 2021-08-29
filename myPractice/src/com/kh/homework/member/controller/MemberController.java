@@ -23,7 +23,7 @@ public class MemberController {
 		return count;
 	}
 	
-	public Boolean checkId(String inputId) {
+	public boolean checkId(String inputId) {
 		
 //		for (int i = 0; i < SIZE; i++) {
 //			if (!(m[i] == null)) {
@@ -103,7 +103,7 @@ public class MemberController {
 		return null;
 	}
 	
-	public Boolean updatePassword(String id, String password) {
+	public boolean updatePassword(String id, String password) {
 
 		if (checkId(id)) {
 			for (int i = 0; i < SIZE; i++) {
@@ -119,7 +119,7 @@ public class MemberController {
 
 	}
 
-	public Boolean updateName(String id, String name) {
+	public boolean updateName(String id, String name) {
 		
 		if(checkId(id)) {
 			for (int i = 0; i < SIZE; i++) {
@@ -134,7 +134,7 @@ public class MemberController {
 		return false;
 	}
 	
-	public Boolean updateEmail(String id, String email) {
+	public boolean updateEmail(String id, String email) {
 		
 		if (checkId(id)) {
 			for (int i = 0; i < SIZE; i++) {
@@ -149,7 +149,7 @@ public class MemberController {
 		return false;
 	}
 	
-	public Boolean delete(String id) {
+	public boolean delete(String id) {
 		
 		for (int i = 0; i < SIZE; i++) {
 			if (m[i] != null) {
