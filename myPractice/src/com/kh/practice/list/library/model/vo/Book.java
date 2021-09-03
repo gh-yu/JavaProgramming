@@ -31,8 +31,14 @@ public class Book implements Comparable<Book> { // Comparable인터페이스 상속받아
 		return "(" + title + "/" + author + "/" + category + "/" + price + ")";
 	}
 
+	
+	// ArrayList와 같은 Collection클래스는 내부 메소드에서 equals메소드 호출해서 컬렉션의 각 요소간 비교를 하는데
+	// 컬렉션의 각 요소, 즉 객체들간 같은지 다른지 비교하려면 내가 만든 (제네릭으로 지정된 타입인)클래스에 맞게 equals메소드 재정의가 필요
+	// 오버라이딩 후 controller나 view 등에서
+	// 컬렉션 생성하여 컬렉션의 각 요소에 접근해 equals메소드 호출(BookList.get(i).equals(otherObj))하면 Object클래스의 메소드가 아닌 이 클래스에서 재정의된 equals메소드 호출됨
+	// Book b = new Book(); b.equals(otherObj); 해도 이 오버라이딩된 equals메소드 호출하는 것
 	@Override
-	public boolean equals(Object obj) {
+	public boolean equals(Object obj) { 
 		// 객체 측면
 		if (this == obj) { // 주소값 같으면 같은 객체, 바로 true 반환
 			return true;
@@ -50,13 +56,13 @@ public class Book implements Comparable<Book> { // Comparable인터페이스 상속받아
 			if (other.title != null) {
 				return false;
 			}
-		} else if (title != other.title) {
+		} else if (!title.equals(other.title)) { // String이라 equals메소드로 비교
 			return false;
 		} 
 		if (!author.equals(other.author)) {
 			return false;
 		} 
-		if (category != other.category) {
+		if (!category.equals(other.category)) {
 			return false;
 		}
 		if (price != other.price) {

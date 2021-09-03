@@ -45,6 +45,7 @@ public class BookController {
 	public Book deleteBook(String title, String author) {
 		
 		Book removeBook = null;
+		
 		for (int i = 0; i < bookList.size();) {
 			
 			if (bookList.get(i).getTitle().equals(title) && bookList.get(i).getAuthor().equals(author)) { // 도서 명도 같고 저자 명도 같으면
