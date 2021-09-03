@@ -5,7 +5,7 @@ import com.kh.example.family.controller.FamilyController;
 public class Run {
 
 	public static void main(String[] args) {
-	
+		new FamilyController().method();
 	}
 
 }

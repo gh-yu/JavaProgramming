@@ -1,6 +1,6 @@
 package com.kh.example.family.model.vo;
 
-import com.kh.example.family.mode.vo.Basic;
+import com.kh.example.family.model.vo.Basic;
 
 public class Baby extends Family implements Basic{
 	public Baby() {}

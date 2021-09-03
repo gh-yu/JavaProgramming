@@ -1,6 +1,6 @@
 package com.kh.example.family.controller;
 
-import com.kh.example.family.mode.vo.Basic;
+import com.kh.example.family.model.vo.Basic;
 import com.kh.example.family.model.vo.Baby;
 import com.kh.example.family.model.vo.Family;
 import com.kh.example.family.model.vo.Mother;
