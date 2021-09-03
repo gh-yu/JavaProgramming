@@ -16,7 +16,7 @@ public class Shape {
 	}
 	
 	public String inform() {
-		return "높이 : " + height + " / 너비: " + width + " / 색깔 : " + color;	
+		return "높이 : " + height + " / 너비 : " + width + " / 색깔 : " + color;	
 	}
 	
 	// type에 대한 setter, getter

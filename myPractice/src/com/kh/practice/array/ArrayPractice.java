@@ -109,11 +109,12 @@ public class ArrayPractice {
 			if (arr[i] == ch) {
 				if (iCount == 0) {
 					System.out.print(str + "에 " + ch + "가 존재하는 위치(인덱스) : " + i);
-					iCount++;
+//					iCount++;
 				} else {
 					System.out.print(" " + i);
-					iCount++;
+//					iCount++;
 				}
+				iCount++;
 			}
  		}
 		if (iCount > 0) {

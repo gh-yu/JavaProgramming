@@ -106,55 +106,99 @@ public class ShapeMenu {
 			
 			switch (menuNum) {
 			case 1 :
-				System.out.print("높이 : ");
-				height = sc.nextDouble(); 
-				System.out.print("너비 : ");
-				width = sc.nextDouble(); 			
-				System.out.print("면적 : ");
-				System.out.println(spr.calcArea(type, height, width));
+				while (true) {
+					System.out.print("높이 : ");
+					height = sc.nextDouble(); 
+					System.out.print("너비 : ");
+					width = sc.nextDouble();
+					if (height == 0 || width == 0) {
+						System.out.println("0 이상의 숫자만 입력이 가능합니다. 다시 입력해주세요.");
+					} else {
+						System.out.print("면적 : ");
+						System.out.println(spr.calcArea(type, height, width));
+						break;
+					}
+				}
 				break;
 			case 2 : 
 				System.out.print("색깔 : ");
 				String color = sc.next(); // nextLine() 으로 받게 되면 엔터까지 가져와서 문제 발생
-				spr.paintColor(color);
-				System.out.println("색이 설정되었습니다.");
+				if (spr.paintColor(type, color).equals(color)) {
+					System.out.println(color + "으로 설정되었습니다.");
+				} else {
+					System.out.println("색칠할 삼각형이 없어 " + spr.paintColor(type, color) + " 높이와 너비를 먼저 설정해주세요.");
+				}
+	
 			}
 			
 		} else if (type == 4) { // 사각형 메뉴 선택시
 			
 			switch (menuNum) {
 			case 1 :
-				System.out.print("높이 : ");
-				height = sc.nextDouble(); 
-				System.out.print("너비 : ");
-				width = sc.nextDouble();
-				System.out.print("돌레 : ");
-				System.out.println(spr.calcPerimeter(type, height, width));
+				while (true) {
+					System.out.print("높이 : ");
+					height = sc.nextDouble(); 
+					System.out.print("너비 : ");
+					width = sc.nextDouble();
+					if (height == 0 || width == 0) {
+						System.out.println("0 이상의 숫자만 입력이 가능합니다. 다시 입력해주세요.");
+					} else {
+						System.out.print("돌레 : ");
+						System.out.println(spr.calcPerimeter(type, height, width));
+						break;
+					}
+				}
 				break;
 			case 2 : 
-				System.out.print("높이 : ");
-				height = sc.nextDouble(); 
-				System.out.print("너비 : ");
-				width = sc.nextDouble(); 			
-				System.out.print("면적 : ");
-				System.out.println(spr.calcArea(type, height, width));
+				while (true) {
+					System.out.print("높이 : ");
+					height = sc.nextDouble(); 
+					System.out.print("너비 : ");
+					width = sc.nextDouble();
+					if (height == 0 || width == 0) {
+						System.out.println("0 이상의 숫자만 입력이 가능합니다. 다시 입력해주세요.");
+					} else {
+						System.out.print("면적 : ");
+						System.out.println(spr.calcArea(type, height, width));
+						break;
+					}
+				}
 				break;
 			case 3 : 
 				System.out.print("색깔 : ");
-				String color = sc.next();
-				spr.paintColor(color);
-				System.out.println("색이 설정되었습니다.");
+				String color = sc.next(); // nextLine() 으로 받게 되면 엔터까지 가져와서 문제 발생
+				System.out.println(spr.paintColor(type, color));
+				if (spr.paintColor(type, color).equals(color)) {
+					System.out.println(color + "으로 설정되었습니다.");
+				} else {
+					System.out.println("색칠할 사각형이 없어 " + spr.paintColor(type, color) + " 높이와 너비를 먼저 설정해주세요.");
+				}
+	
+//				System.out.print("색깔 : ");
+//				String color = sc.next();
+//				spr.paintColor(color);
+//				System.out.println("색이 설정되었습니다.");
 			}
 		}
 			
 	}
 	
+//	public void printlnform(int type) {
+//		
+//		if (type == 3) {
+//				System.out.println(spr.print());
+//		} else if (type == 4) {
+//				System.out.println(spr.print());
+//		}
+//		
+//	}
+	
 	public void printlnform(int type) {
 		
 		if (type == 3) {
-				System.out.println(spr.print());
+				System.out.println(spr.print(type));
 		} else if (type == 4) {
-				System.out.println(spr.print());
+				System.out.println(spr.print(type));
 		}
 		
 	}
