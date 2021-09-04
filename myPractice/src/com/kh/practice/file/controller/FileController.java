@@ -12,13 +12,12 @@ public class FileController {
 	}
 
 	public void fileSave(String file, StringBuilder sb) {
-		
-		String str = sb.substring(0, sb.length()); // StringBuilder자료형 sb를 String으로 바꾸는 과정
-		
+
 //		String[] strArr = new String[str.length()]; 
 //		String[] strArr = str.split("\n"); // 만약 cher배열로 넘겨줄거면 split해서 fd.fileSave에 넘겨줘서 for문 돌려서 한 줄씩 띄워서 저장 가능
 		
-		
+		String str = sb.substring(0, sb.length()); // StringBuilder자료형 sb를 String으로 바꾸는 과정
+//		String str = sb.toString(); // 이렇게도 가능
 		fd.fileSave(file, str);
 	}
 

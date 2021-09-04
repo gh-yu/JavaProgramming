@@ -48,8 +48,9 @@ public class MemberController {
 	public void insertMember(String id, String name, String password,
 								String email, char gender, int age) {
 		
-		m[existMemberNum()] = new Member(id, name, password, email, gender, age);
-
+		m[existMemberNum()] = new Member(id, name, password, email, gender, age); 
+		
+		// for문 돌려 객체배열 인덱스 중 null인 객체 있으면 넣고 break;하는 방법도 있음
 	}
 	
 //	public String searchId(String id) {

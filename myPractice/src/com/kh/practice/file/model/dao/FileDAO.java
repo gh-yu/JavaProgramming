@@ -3,6 +3,7 @@ package com.kh.practice.file.model.dao;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -21,41 +22,21 @@ public class FileDAO {
 		return false;
 		
 	}
-
 	
-	public StringBuilder fileOpen(String file) {
-		
-		StringBuilder sb = new StringBuilder();
-		try (BufferedReader br = new BufferedReader(new FileReader(file));) {
-			
-//			int value;
-//			while ((value = br.read()) != -1) { // br.read메소드 문자 끝에 도달할 때까지 int단위로 반환되기 때문(줄바꿈문자도 같이 반환)
-//				sb.append((char)value);  // 줄바꿈 문자 같이 안 붙여넣어도, 저장되어 있는 줄바꿈 문자 같이 저장됨 
-//			}		
-			
-			String value = null;
-			while ((value = br.readLine()) != null) { // br.readLine메소드 줄바꿈문자 안식하여 줄바꿈문자 있기 전의 문자열 반환
-				sb.append(value + "\n"); // sb에 줄마다 있는 줄바꿈문자까지 같이 붙여넣기  
-			}
-			
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e1) {
-			e1.printStackTrace();
-		}
-		
-		return sb;
-	}
-	
-//	public StringBuilder fileOpen(String file) {
+//	public StringBuilder fileOpen(String file) { // 입력스트림 사용/ file로부터 문자열 읽어오기
 //		
 //		StringBuilder sb = new StringBuilder();
-//		try (FileReader fr = new FileReader(file);) {
+//		try (BufferedReader br = new BufferedReader(new FileReader(file));) {
 //			
-//			int value;
-//			while ((value = fr.read()) != -1) {
-//				sb.append((char)value);
-//			}		
+////			int value;
+////			while ((value = br.read()) != -1) { // br.read메소드 문자 끝에 도달할 때까지 int단위로 반환되기 때문(줄바꿈문자도 같이 반환)
+////				sb.append((char)value);  // 줄바꿈 문자 같이 안 붙여넣어도, 저장되어 있는 줄바꿈 문자 같이 저장됨 
+////			}		
+//			
+//			String value = null;
+//			while ((value = br.readLine()) != null) { // br.readLine메소드 줄바꿈문자 안식하여 줄바꿈문자 있기 전의 문자열 반환
+//				sb.append(value + "\n"); // sb에 줄마다 있는 줄바꿈문자까지 같이 붙여넣기  
+//			}
 //			
 //		} catch (FileNotFoundException e) {
 //			e.printStackTrace();
@@ -65,10 +46,28 @@ public class FileDAO {
 //		
 //		return sb;
 //	}
+	
+	public StringBuilder fileOpen(String file) { // readLine() 대신 read()로 읽어오기 -> 줄바꿈문자 따로 안 넣어줘도 저장되어있는 엔터 잘 나옴
+		
+		StringBuilder sb = new StringBuilder();
+		try (FileReader fr = new FileReader(file);) {
+			
+			int value;
+			while ((value = fr.read()) != -1) {
+				sb.append((char)value);
+			}		
+			
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+		
+		return sb;
+	}
 
 
-
-	public void fileSave(String file, String str) {
+	public void fileSave(String file, String str) { // 출력스트림 사용/ file에 문자열 출력, 저장
 		
 		try (BufferedWriter bw = new BufferedWriter(new FileWriter(file)); ){
 		
@@ -79,7 +78,6 @@ public class FileDAO {
 		}
 		
 	}
-
 
 
 //	public void fileSave(String file, String str) {

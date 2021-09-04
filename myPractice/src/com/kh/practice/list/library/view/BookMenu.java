@@ -117,9 +117,10 @@ public class BookMenu {
 		
 		ArrayList<Book> listKeword = bc.selectBook(keword);
 		
-		boolean check = false; // 
+		boolean check = false;
 		for (int i = 0; i < listKeword.size(); i++) {
-			System.out.println("        " + listKeword.get(i));
+//			System.out.println("        " + listKeword.get(i));
+			System.out.println("\t" + listKeword.get(i));
 			check = true; // for문 안에 들어왔다는 건 listKeword.size가 1 이상, 검색 결과가 있다는 의미
 		}
 		if (!check) {  // 검색한 결과 없으면

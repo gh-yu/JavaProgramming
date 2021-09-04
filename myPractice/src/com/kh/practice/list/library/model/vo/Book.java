@@ -31,6 +31,13 @@ public class Book implements Comparable<Book> { // Comparable인터페이스 상속받아
 		return "(" + title + "/" + author + "/" + category + "/" + price + ")";
 	}
 
+
+	@Override
+	public int compareTo(Book o) {
+
+		return title.compareTo(o.title); // 기존 String클래스에서 오버라이딩한 comparTo메소드 호출 -> 오름차순 정렬
+		
+	}
 	
 	// ArrayList와 같은 Collection클래스는 내부 메소드에서 equals메소드 호출해서 컬렉션의 각 요소간 비교를 하는데
 	// 컬렉션의 각 요소, 즉 객체들간 같은지 다른지 비교하려면 내가 만든 (제네릭으로 지정된 타입인)클래스에 맞게 equals메소드 재정의가 필요
@@ -87,11 +94,5 @@ public class Book implements Comparable<Book> { // Comparable인터페이스 상속받아
 		return result;
 	}
 
-
-	@Override
-	public int compareTo(Book o) {
-		
-		return title.compareTo(o.title); // 기존 String클래스에서 오버라이딩한 comparTo메소드 호출 -> 오름차순 정렬
-	}
 
 }

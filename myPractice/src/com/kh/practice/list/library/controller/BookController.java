@@ -17,7 +17,7 @@ public class BookController {
 	}
 	
 	public void insertBook(Book b) {
-		
+			
 		bookList.add(b); // 컬렉션에 매개변수로 받은 객체 b 추가, 생성된 객체 list에 하나씩 담음
 		
 	}
@@ -49,7 +49,7 @@ public class BookController {
 		for (int i = 0; i < bookList.size();) {
 			
 			if (bookList.get(i).getTitle().equals(title) && bookList.get(i).getAuthor().equals(author)) { // 도서 명도 같고 저자 명도 같으면
-				removeBook = bookList.get(i); // 삭제 전 요소 b객체에 저장
+				removeBook = bookList.get(i); // 삭제 전 요소 removeBook 객체에 저장
 				bookList.remove(bookList.get(i)); // 해당 컬렉션의 요소(객체) 삭제
 				i = 0; // 삭제되고 나면 컬렉션 길이 새로 설정되기 때문에 index 0부터 다시 검색
 			} else { // i++가 for문 선언 쪽에 있으면 위에서 i=0해도 i++한 1부터 검사하게 됨, 그래서 else{i++}로 증감식 따로 빼줌
