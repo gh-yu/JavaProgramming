@@ -1,8 +1,6 @@
 package com.kh.practice.list.music.controller;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
 import java.util.Collections;
 
 import com.kh.practice.list.music.model.compare.AscTitle;
@@ -61,20 +59,18 @@ public class MusicController {
 			if (musicList.get(i).getTitle().equalsIgnoreCase(title)) { // 대소문자 상관없이 같은지 확인
 				m = musicList.get(i);
 			}
-		}		
+		}
 		return m;
 	}
 
 	public Music removeMusic(String title) {
 		
 		Music m = null;
-		for (int i = 0; i < musicList.size();) { 
+		for (int i = 0; i < musicList.size(); i++) { 
 			if (musicList.get(i).getTitle().equalsIgnoreCase(title)) {
-				m = musicList.get(i); // 삭제 전 객체로 초기화
+				m = musicList.get(i); // 삭제 전 musiclist의 요소(객체) m에 저장
 				musicList.remove(musicList.get(i));
-				i = 0; // 중복된 곡명 더 있을 수도 있으니 또 검색
-			} else {
-				i++; 
+				i--; // 삭제되면 뒤의 인덱스가 앞으로 밀림, i--해서 증감식에서 i++해도 i 값 그대로해서 검색
 			}
 		}
 	
@@ -99,18 +95,30 @@ public class MusicController {
 	}
 		
 
-	public Music setMusic(String title, String setTitle, String setSinger) {
+//	public Music setMusic(String title, String setTitle, String setSinger) {
+//		Music m = null;
+//		for (int i = 0; i < musicList.size(); i++) { 
+//			if (musicList.get(i).getTitle().equalsIgnoreCase(title)) {
+//				m = musicList.get(i); // 수정 전 객체로 초기화
+////				musicList.get(i).setTitle(setTitle);
+////				musicList.get(i).setSinger(setSinger); // 이렇게 하면 m 반환했을때 필드 수정된 채로 반환됨
+//				musicList.set(i, new Music(setTitle, setSinger)); // ArrayList.set(int index, Music element):Music
+//																  // Replaces the element at the specified position in this list with the specified element.
+//			}
+//		}
+//		return m;
+//		
+//	}
+//	
+	public Music setMusic(String title, Music setMusic) {
 		Music m = null;
 		for (int i = 0; i < musicList.size(); i++) { 
 			if (musicList.get(i).getTitle().equalsIgnoreCase(title)) {
-				m = musicList.get(i); // 수정 전 객체로 초기화
-//				musicList.get(i).setTitle(setTitle);
-//				musicList.get(i).setSinger(setSinger); // 이렇게 하면 m 반환했을때 필드 수정된 채로 반환됨
-				musicList.set(i, new Music(setTitle, setSinger)); // ArrayList.set(int index, Music element):Music
-																  // Replaces the element at the specified position in this list with the specified element.
+				m = musicList.get(i); // 변경되기 전의 객체 m에 저장
+				musicList.set(i, setMusic); // musicList의 i번째 요소 setMusic의 값으로 변경
 			}
 		}
-		return m;
+		return m; // 변경이 이루어졌으면 변경되기 전의 객체가 반환, 아니면 null반환
 		
 	}
 

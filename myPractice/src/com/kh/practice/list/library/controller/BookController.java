@@ -46,15 +46,24 @@ public class BookController {
 		
 		Book removeBook = null;
 		
-		for (int i = 0; i < bookList.size();) {
+//		for (int i = 0; i < bookList.size();) {
+//			
+//			if (bookList.get(i).getTitle().equals(title) && bookList.get(i).getAuthor().equals(author)) { // 도서 명도 같고 저자 명도 같으면
+//				removeBook = bookList.get(i); // 삭제 전 요소 removeBook 객체에 저장
+//				bookList.remove(bookList.get(i)); // 해당 컬렉션의 요소(객체) 삭제
+//				i = 0; // 삭제되고 나면 컬렉션 길이 새로 설정되기 때문에 index 0부터 다시 검색
+//			} else { // i++가 for문 선언 쪽에 있으면 위에서 i=0해도 i++한 1부터 검사하게 됨, 그래서 else{i++}로 증감식 따로 빼줌
+//				 i++;
+//			}
+//		}
+		
+		for (int i = 0; i < bookList.size(); i++) {
 			
 			if (bookList.get(i).getTitle().equals(title) && bookList.get(i).getAuthor().equals(author)) { // 도서 명도 같고 저자 명도 같으면
 				removeBook = bookList.get(i); // 삭제 전 요소 removeBook 객체에 저장
 				bookList.remove(bookList.get(i)); // 해당 컬렉션의 요소(객체) 삭제
-				i = 0; // 삭제되고 나면 컬렉션 길이 새로 설정되기 때문에 index 0부터 다시 검색
-			} else { // i++가 for문 선언 쪽에 있으면 위에서 i=0해도 i++한 1부터 검사하게 됨, 그래서 else{i++}로 증감식 따로 빼줌
-				 i++;
-			}
+				i--; // 삭제되고 나면 다음 검색할 요소가 앞으로 밀리기 때문에 i--해줘서 제대로 검색할 수 있도록
+			} 
 		}
 		
 //		if (list.size() > 0) { // title, author 일치하는 요소들 위에서 삭제시켜도, 일치하는 요소라도 요소 1개는 계속 남는 상황, 요소 1개 검색 따로 해줌

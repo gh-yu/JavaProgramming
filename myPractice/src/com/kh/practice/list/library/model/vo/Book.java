@@ -39,8 +39,8 @@ public class Book implements Comparable<Book> { // Comparable인터페이스 상속받아
 		
 	}
 	
-	// ArrayList와 같은 Collection클래스는 내부 메소드에서 equals메소드 호출해서 컬렉션의 각 요소간 비교를 하는데
-	// 컬렉션의 각 요소, 즉 객체들간 같은지 다른지 비교하려면 내가 만든 (제네릭으로 지정된 타입인)클래스에 맞게 equals메소드 재정의가 필요
+	// ArrayList와 같은 Collection클래스는 내부 메소드(remove메소드 등)에서 equals메소드 호출해서 같은 객체인지 비교하는데
+	// 컬렉션의 각 요소, 즉 객체들간 같은지 다른지 주소값이 아닌 값을 통해 비교하려면 내가 만든 (제네릭으로 지정된 타입인)클래스에 맞게 equals메소드 재정의가 필요
 	// 오버라이딩 후 controller나 view 등에서
 	// 컬렉션 생성하여 컬렉션의 각 요소에 접근해 equals메소드 호출(BookList.get(i).equals(otherObj))하면 Object클래스의 메소드가 아닌 이 클래스에서 재정의된 equals메소드 호출됨
 	// Book b = new Book(); b.equals(otherObj); 해도 이 오버라이딩된 equals메소드 호출하는 것

@@ -77,7 +77,7 @@ public class Dog implements Comparable<Dog>{
 		
 		
 		if (weight > object) {
-			return -1;
+			return -1; // 1을 리턴하면 오름차순, -1을 리턴하면 내림차순
 		} else if (weight == object) {
 			return 0;
 		} else {

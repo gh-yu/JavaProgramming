@@ -132,9 +132,17 @@ public class MusicView {
 		System.out.print("수정할 곡 가수명 : ");
 		String setSinger = sc.nextLine();
 		
-		Music m = mc.setMusic(title, setTitle, setSinger);
-		if (m != null) {
-			System.out.println(m + "의 값이 변경 되었습니다.");
+//		Music m = mc.setMusic(title, setTitle, setSinger);
+//		if (m != null) {
+//			System.out.println(m + "의 값이 변경 되었습니다.");
+//		} else {
+//			System.out.println("수정할 곡이 없습니다.");
+//		}
+		
+		Music setMusic = new Music(setTitle, setSinger); // 객체 만들어서
+		setMusic = mc.setMusic(title, setMusic);         // 메소드 호출할때 매개변수 값으로 넣기
+		if (setMusic != null) {
+		System.out.println(setMusic + "의 값이 변경 되었습니다.");
 		} else {
 			System.out.println("수정할 곡이 없습니다.");
 		}
