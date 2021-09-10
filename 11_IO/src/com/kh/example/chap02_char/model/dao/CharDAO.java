@@ -36,7 +36,7 @@ public class CharDAO {
 	}
 	
 	public void fileOpen2() {
-		try (FileReader fr = new FileReader("b_char.txt");) { 
+		try (FileReader fr = new FileReader("test.txt");) { 
 // Unhandled exception type IOException thrown by automatic close() invocation on fr
 // java.io.FileReader.FileReader(String fileName) throws FileNotFoundException
 // try~with~resource : 자동으로 close 처리
@@ -61,7 +61,7 @@ public class CharDAO {
 		// File Stream x    Writer ==> FileWriter
 		FileWriter fw = null;
 		try {
-			fw = new FileWriter("b_char.txt", true); // , true 붙이면 이어쓰기
+			fw = new FileWriter("b_char.txt", true); // , true 붙이면 이어쓰기(false거나 안 붙이면 덮어쓰기)
 			fw.write("와, IO 재밌다!"); // String
 			fw.write('A');
 			char[] cArr = {'a', 'p', 'p', 'l', 'e'}; // char[]
@@ -91,4 +91,5 @@ public class CharDAO {
 		}
 		
 	}
+
 }

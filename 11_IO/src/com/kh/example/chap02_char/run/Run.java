@@ -8,6 +8,7 @@ public class Run {
 		CharDAO cd = new CharDAO();
 		cd.fileOpen2();
 		cd.fileSave2();
+
 	}
 
 }

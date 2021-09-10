@@ -8,7 +8,9 @@ public class Run {
 		TestExam te = new TestExam();
 		
 //		te.methodTest1();
-		te.methodTest2();
+//		te.methodTest3();
+		te.input();
+		te.output();
 
 	}
 

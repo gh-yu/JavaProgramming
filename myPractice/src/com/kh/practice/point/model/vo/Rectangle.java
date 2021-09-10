@@ -13,19 +13,19 @@ public class Rectangle extends Point {
 		this.width = width;
 	}
 	
-	public int getX() {
-		return super.getX();
-	}
-	public void setX(int x) {
-		super.setX(x);
-	}
-	
-	public int getY() {
-		return super.getY();
-	}
-	public void setY(int y) {
-		super.setY(y);
-	}
+//	public int getX() {    		// 부모 메소드에 존재, 중복된 코드로 필요 없는 코드
+//		return super.getX();
+//	}
+//	public void setX(int x) {
+//		super.setX(x);
+//	}
+//	
+//	public int getY() {
+//		return super.getY();
+//	}
+//	public void setY(int y) {
+//		super.setY(y);
+//	}
 	
 	public int getHeight() {
 		return height;

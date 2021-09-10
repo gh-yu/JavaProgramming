@@ -1,6 +1,6 @@
 package com.kh.practice.snack.controller;
 
-import com.kh.prctice.snack.model.vo.Snack;
+import com.kh.practice.snack.model.vo.Snack;
 
 public class SnackController {
 	
